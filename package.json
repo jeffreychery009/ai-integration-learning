@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "node script.js"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> fa114b2cdbcdf1d1d1354c978b205d110820c857
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.7",
     "openai": "^4.87.3"
   }
+=======
+  "description": ""
+>>>>>>> fa114b2cdbcdf1d1d1354c978b205d110820c857
 }
