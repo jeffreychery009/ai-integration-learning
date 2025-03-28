@@ -17,7 +17,7 @@ const client = new OpenAI({
 })
 
 
-
+// Define the methods for the chatbot
 const methods = {
     basic: {
         name: "Basic",
@@ -47,7 +47,7 @@ let messagesHistory = [
 ]
 
 function displayMenu() {
-    
+    // Display the menu for the user to choose from
     const methodName = Object.values(methods).map(method => method.name.trim());
 
     console.log("\nWelcome to AI Chatbot Flow. Here to answer all your inquiries!");
@@ -84,6 +84,7 @@ function chooseMethod(choice) {
 userInterface.on("line", async (input) => {
     const userInput = input.trim();
 
+    // Check if the user input starts with a slash, indicating a command
     if (userInput.startsWith("/")) {
         const parts = userInput.split(" ");  // Split into parts
         const command = parts[0];  // First part is the command ("/method")
@@ -113,7 +114,7 @@ async function sendMessage(content) {
     }
 
     messagesHistory.push({ role: "user", content: content })
-
+// Send the message to the AI
     try {
         console.log("\nAI is typing...")
         const completion = await client.chat.completions.create({
