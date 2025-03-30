@@ -133,5 +133,6 @@ async function sendMessage(content) {
     }
 }
 
+// Start the chatbot
 displayMenu();
 
