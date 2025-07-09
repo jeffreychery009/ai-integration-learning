@@ -1,5 +1,26 @@
-const { OpenAI } = require("openai");
-const dotenv = require("dotenv");
+let OpenAI;
+try {
+    ({ OpenAI } = require("openai"));
+} catch (error) {
+    console.warn("openai module not found; using a mock implementation.");
+    OpenAI = class {
+        constructor() {}
+        chat = {
+            completions: {
+                async create() {
+                    return { choices: [{ message: { content: "Mock response" } }] };
+                }
+            }
+        }
+    };
+}
+let dotenv;
+try {
+    dotenv = require("dotenv");
+} catch (error) {
+    console.warn("dotenv module not found; environment variables will not be loaded from .env");
+    dotenv = { config: () => {} };
+}
 const readline = require("readline");
 const { stdin, stdout } = require("process");
 
